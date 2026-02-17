@@ -5,7 +5,7 @@ pipeline {
    }
     environment {
         DOCKER_IMAGE_NAME = 'calculator'
-        GITHUB_REPO_URL = 'https://github.com/BThangaraju/MiniProject.git'
+        GITHUB_REPO_URL = 'https://github.com/VenerableHarsha/MiniProject.git'
     }
 
     stages {
@@ -31,8 +31,8 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', '48ac61eb-1709-40ce-87cb-15cc2038a53d') {
-                    sh 'docker tag calculator iiitb/calculator:latest'
-                    sh 'docker push iiitb/calculator'
+                    sh 'docker tag calculator venerableharsha/calculator:latest'
+                    sh 'docker push venerableharsha/calculator'
                     }
                  }
             }
@@ -51,5 +51,6 @@ pipeline {
 
     }
 }
+
 
 
