@@ -8,25 +8,20 @@
       docker_image:
         name: "venerableharsha/calculator"
         source: pull
-      register: docker_pull_result
-
-    - name: Display Docker Pull Result
-      debug:
-        var: docker_pull_result
-        
+  
     - name: Start Docker service
       service:
         name: docker
         state: started
-        
-    - name: stop container
-      shell: docker stop calculator
-      
-    - name: rm container
-      shell: docker rm calculator
-     
-    - name: Running container
-      shell: docker run -it -d --name calculator venerableharsha/calculator /bin/bash
+  
+    - name: Remove old container if exists
+      shell: docker rm -f calculator
+      ignore_errors: yes
+  
+    - name: Run container
+      shell: docker run -d --name calculator venerableharsha/calculator
+
+
 
 
 
