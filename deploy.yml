@@ -19,7 +19,8 @@
       ignore_errors: yes
   
     - name: Run container
-      shell: docker run -d --name calculator venerableharsha/calculator
+      shell: docker run -td --name calculator venerableharsha/calculator
+
 
 
 
